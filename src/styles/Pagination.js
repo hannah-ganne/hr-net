@@ -1,0 +1,16 @@
+import styled from "styled-components";
+
+export const PaginationNav = styled.nav`
+
+`
+
+export const NavButton = styled.button`
+    font-family: 'Noto Serif', serif;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+`
+
+export const PageNum = styled.span`
+    margin: 0 0.5rem;
+`

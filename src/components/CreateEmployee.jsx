@@ -20,6 +20,36 @@ export default function CreateEmployee() {
     const [zipCode, setZipCode] = useState('')
     const dispatch = useDispatch()
 
+    const employee = {
+        firstName,
+        lastName,
+        dateOfBirth,
+        startDate,
+        department,
+        address: {
+            street,
+            city,
+            state,
+            zipCode
+        }
+    }
+
+    const handleClick = () => {
+        let employeeList = JSON.parse(localStorage.getItem('employees')) || []
+        employeeList.push(employee)
+        localStorage.setItem('employees', JSON.stringify(employeeList))
+
+        setFirstName('')
+        setLastName('')
+        setDateOfBirth('')
+        setStartDate('')
+        setDepartment('')
+        setStreet('')
+        setCity('')
+        setState('')
+        setZipCode('')
+    }
+
     return (
         <Main>
             <Row>
@@ -38,21 +68,11 @@ export default function CreateEmployee() {
                         <SelectItem label="State" list={states} value={state} setValue={setState} />
                         <InputItem label="Zip Code" type="text" value={zipCode} setValue={setZipCode} />
                     </FieldSet>
-                    <Button onClick={() => {
-                        dispatch(addEmployee({
-                            firstName,
-                            lastName,
-                            dateOfBirth,
-                            startDate,
-                            department,
-                            address: {
-                                street,
-                                city,
-                                state,
-                                zipCode
-                            }
-                        }))
-                    }}>Save</Button>
+                    <Button
+                        onClick={handleClick}
+                    >
+                        Save
+                    </Button>
                 </Column>
             </Row>
         </Main>

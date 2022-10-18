@@ -1,7 +1,7 @@
 import { InputContainer, Label } from "../styles/InputItem";
 import { Select, Option } from "../styles/SelectItem";
 
-export default function SelectItem({ label, list, value, setValue }) {
+export default function SelectItem({ label, list, setValue }) {
     return (
         <InputContainer>
             <Label>{label}</Label>

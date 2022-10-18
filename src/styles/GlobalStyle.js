@@ -3,12 +3,11 @@ import styled from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
     :root {
-        --dark-blue: #002f6c;
-        --light-blue: #4f83cc;
-        --blue: #01579b;
+        --dark-gray: #1c313a;
+        --gray: #455a64;
         --dark-gray-blue: #aec4c7;
         --white: #f4f4f4;
-        --light-mint: #e0f7fa;
+        --green: #00838f;
     }
 
     html {
@@ -62,8 +61,9 @@ export const Button = styled.button`
     align-self: center;
     border: none;
     padding: 1rem 2rem;
-    background-color: var(--blue);
+    background-color: var(--gray);
     color: var(--white);
     text-transform: uppercase;
     border-radius: 5rem;
+    cursor: pointer;
 `

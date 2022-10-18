@@ -2,7 +2,8 @@ import styled from 'styled-components'
 import { Ul, Li, A } from '../styles/GlobalStyle'
 
 export const HeaderContainer = styled.header`
-    background-color: var(--dark-gray-blue);
+    background-color: var(--dark-gray);
+    color: var(--white);
     font-family: 'Oxygen', sans-serif;
     padding: 2rem 5rem;
     display: flex;
@@ -32,7 +33,7 @@ export const NavA = styled(A)`
 `
 
 export const SubHeader = styled.div`
-    background-color: var(--light-mint);
+    background-color: var(--dark-gray-blue);
     padding: 1rem 5rem;
 
     & h2 {

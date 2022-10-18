@@ -18,11 +18,11 @@ export const Input = styled.input`
     padding: 0.3rem 2rem 0.3rem 0;
     border: none;
     background-color: transparent;
-    border-bottom: 1px solid var(--dark-blue);
+    border-bottom: 1px solid var(--dark-gray-blue);
     margin-top: 0.4rem;
 
     &:focus {
         outline: none;
-        border-bottom: 2px solid var(--light-blue);
+        border-bottom: 2px solid var(--green);
     }
 `

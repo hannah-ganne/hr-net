@@ -4,8 +4,6 @@ import SelectItem from './SelectItem'
 import departments from '../assets/data/departments'
 import { FieldSet } from '../styles/CreateEmployee'
 import states from '../assets/data/states'
-import { addEmployee } from '../utils/redux/employeeSlice'
-import { useDispatch } from 'react-redux'
 import { useState } from 'react'
 
 export default function CreateEmployee() {
@@ -18,7 +16,6 @@ export default function CreateEmployee() {
     const [city, setCity] = useState('')
     const [state, setState] = useState('')
     const [zipCode, setZipCode] = useState('')
-    const dispatch = useDispatch()
 
     const employee = {
         firstName,

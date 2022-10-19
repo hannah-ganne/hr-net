@@ -9,7 +9,7 @@ export default function Header() {
         <>
             <HeaderContainer>
             <HeaderLogo>
-                <A href="#">
+                <A href="/create-employee">
                     HRnet
                 </A>
             </HeaderLogo>

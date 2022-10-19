@@ -23,7 +23,7 @@ export const TableHeader = styled.th`
     & img {
         margin-left: 0.5rem;
         margin-bottom: 0.1rem;
-        ${({ sortOrder, column, abbr }) => (sortOrder === 'asc' && column === abbr) && 'transform: rotate(0.5turn)'};
+        transform: rotate(${({ sortOrder, column, abbr }) => (sortOrder === 'desc' && column === abbr) ? '0.5turn' : '0'})
     }
 `
 

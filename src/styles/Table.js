@@ -18,7 +18,13 @@ export const TableRow = styled.tr`
 
 export const TableHeader = styled.th`
     padding: 0.8rem 1rem;
+    cursor: pointer;
 
+    & img {
+        margin-left: 0.5rem;
+        margin-bottom: 0.1rem;
+        ${({ sortOrder, column, abbr }) => (sortOrder === 'asc' && column === abbr) && 'transform: rotate(0.5turn)'};
+    }
 `
 
 export const TableData = styled.td`

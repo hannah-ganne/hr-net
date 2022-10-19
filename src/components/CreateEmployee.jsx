@@ -5,6 +5,7 @@ import departments from '../assets/data/departments'
 import { FieldSet } from '../styles/CreateEmployee'
 import states from '../assets/data/states'
 import { useState } from 'react'
+import Modal from './Modal'
 
 export default function CreateEmployee() {
     const [firstName, setFirstName] = useState('')
@@ -23,28 +24,33 @@ export default function CreateEmployee() {
         dateOfBirth,
         startDate,
         department,
-        address: {
-            street,
-            city,
-            state,
-            zipCode
-        }
+        street,
+        city,
+        state,
+        zipCode
     }
+
+    const [open, setOpen] = useState(false)
 
     const handleClick = () => {
         let employeeList = JSON.parse(localStorage.getItem('employees')) || []
-        employeeList.push(employee)
-        localStorage.setItem('employees', JSON.stringify(employeeList))
 
-        setFirstName('')
-        setLastName('')
-        setDateOfBirth('')
-        setStartDate('')
-        setDepartment('')
-        setStreet('')
-        setCity('')
-        setState('')
-        setZipCode('')
+        if (
+            firstName
+            && lastName
+            && dateOfBirth
+            && startDate
+            && department
+            && street
+            && city
+            && state
+            && zipCode
+        ) {
+            employeeList.push(employee)
+            localStorage.setItem('employees', JSON.stringify(employeeList))
+            // setOpen(true)
+        }
+
     }
 
     return (
@@ -72,6 +78,7 @@ export default function CreateEmployee() {
                     </Button>
                 </Column>
             </Row>
+            <Modal open={open} setOpen={setOpen} />
         </Main>
     )
 }

@@ -8,7 +8,7 @@ export const NavButton = styled.button`
     font-family: 'Noto Serif', serif;
     border: none;
     background-color: transparent;
-    cursor: pointer;
+    cursor: ${({ disabled }) => disabled ? 'not-allowed' : 'pointer'};
 `
 
 export const PageNum = styled.span`

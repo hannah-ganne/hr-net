@@ -12,12 +12,18 @@ export default function ViewEmployees() {
     const currentTableData = useMemo(() => {
         const firstPageIndex = (currentPage - 1) * pageSize;
         const lastPageIndex = firstPageIndex + pageSize;
-        return employees.slice(firstPageIndex, lastPageIndex);
+        if (employees === null) {
+            return []
+        } else {
+            return employees.slice(firstPageIndex, lastPageIndex);
+        }
     }, [currentPage, pageSize]);
 
     const firstEntry = 1 + ((currentPage - 1) * pageSize)
     const lastEntry = firstEntry + currentTableData.length -1
-    const totalEntries = employees.length
+    const totalEntries = employees === null ? 0 : employees.length
+
+    console.log(employees)
     
     return (
         <Main>
@@ -42,7 +48,7 @@ export default function ViewEmployees() {
                 <Wrapper>
                     Showing {firstEntry} to {lastEntry}  of {totalEntries} entries
                 </Wrapper>
-                <Pagination currentPage={currentPage} onPageChange={setCurrentPage} />
+                <Pagination currentPage={currentPage} onPageChange={setCurrentPage} totalEntries={totalEntries} pageSize={pageSize} />
             </RowWrapper>
         </Main>
     )

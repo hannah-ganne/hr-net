@@ -2,27 +2,7 @@ import { TableContainer, TableHead, TableRow, TableHeader, TableData, TableBody 
 import arrowUp from '../assets/images/arrow-up.svg'
 import { useState, useEffect } from 'react'
 
-export default function Table({ data }) {
-    const [column, setColumn] = useState('firstName')
-    const [sortOrder, setSortOrder] = useState('asc')
-    const [sortedData, setSortedData] = useState([])
-
-    useEffect(() => {
-        setSortedData([...data])
-    }, [data])
-
-    const handleClick = (e) => {
-        setColumn(e.target.abbr)
-        setSortOrder(prev => prev === 'asc' ? 'desc' : 'asc')
-
-        if (sortOrder === 'asc') {
-            setSortedData(prev => prev.sort((a, b) => a[column].localeCompare(b[column])))
-        } else {
-            setSortedData(prev => prev.sort((a, b) => a[column].localeCompare(b[column])).reverse())
-        }
-    }
-
-    console.log(data)
+export default function Table({ data, column, sortOrder, handleClick }) {
 
         return (
             <TableContainer>
@@ -112,11 +92,11 @@ export default function Table({ data }) {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {sortedData.length === 0
+                    {data.length === 0
                         ? <TableRow>
                             <TableData colSpan={9}>There is no registered employee</TableData>
                         </TableRow>
-                        : sortedData.map((item, index) => {
+                        : data.map((item, index) => {
                             return (
                                 <TableRow key={`${item.lastName}-${index}`}>
                                     <TableData>{item.firstName}</TableData>
